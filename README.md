@@ -17,3 +17,6 @@ Made by **Devashree**, a creative developer focused on interactive, music-driven
 ## 📄 License
 
 Open source under the [MIT License](LICENSE)
+
+## 🔗 Live Site
+[Mood Music Vibes is live here](https://devashrees17.github.io/Mood-Music-Vibes/)
