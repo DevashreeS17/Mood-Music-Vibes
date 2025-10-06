@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood Music Vibes</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Mood Music Vibes</h1>
+        <div class="header-controls">
+            <button id="compact-toggle" aria-pressed="false">Compact</button>
+            <button id="theme-toggle" aria-pressed="false">Dark</button>
+            <button id="motion-toggle" aria-pressed="false">Reduce Motion</button>
+            <button id="contrast-toggle" aria-pressed="false">Contrast</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="moods">
+            <button data-mood="happy">😊 Happy</button>
+            <button data-mood="sad">😢 Sad</button>
+            <button data-mood="calm">🌊 Calm</button>
+            <button data-mood="energetic">⚡ Energetic</button>
+        </section>
+
+        <section class="player">
+            <div class="now-playing-row">
+                <div class="meta">
+                    <img id="meta-thumb" alt="" class="meta-thumb" />
+                    <div>
+                        <p id="track-name" class="track-name">Select a mood to play music</p>
+                        <p id="meta-author" class="meta-author"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="iframe-wrap" id="spotify-player" aria-hidden="true"></div>
+            <div id="loading">Loading your vibe 🎧...</div>
+
+            <div class="equalizer" id="equalizer">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="spotify-search" placeholder="Paste a Spotify song or playlist link..." />
+                <button id="play-btn">Play</button>
+            </div>
+
+            <p class="hint">🎵 Tip: Log in to Spotify in your browser for full playback!</p>
+            <p id="error-msg" class="error" role="alert"></p>
+        </section>
+    </main>
+
+    <div id="shapes-container"></div>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

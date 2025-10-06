@@ -1,0 +1,253 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to right, #ffcc70, #ff9966);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 960px;
+  padding: 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.header-controls button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  padding: 1rem;
+}
+
+.moods {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.moods button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.moods button.active {
+  background: white;
+  color: #333;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* === Toggle Button Modes === */
+
+/* Dark mode */
+body.dark {
+  background: linear-gradient(to right, #1e1e1e, #2c2c2c);
+  color: #eee;
+}
+body.dark .moods button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #eee;
+}
+body.dark .moods button.active {
+  background: #fff;
+  color: #111;
+}
+
+/* Compact mode */
+body.compact .moods button {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+}
+body.compact .track-name {
+  font-size: 0.9rem;
+}
+body.compact .meta-thumb {
+  width: 48px;
+  height: 48px;
+}
+
+/* Reduced motion */
+body.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* High contrast */
+body.high-contrast {
+  background: black;
+  color: white;
+}
+body.high-contrast .moods button {
+  background: white;
+  color: black;
+}
+body.high-contrast .iframe-wrap {
+  box-shadow: 0 0 0 3px white inset;
+}
+.player {
+  text-align: center;
+}
+
+.iframe-wrap {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 300 / 380;
+  margin: 0 auto;
+}
+
+.iframe-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+#loading {
+  display: none;
+  font-size: 1.2rem;
+  color: white;
+  margin-top: 1rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.equalizer {
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  height: 40px;
+  margin-top: 15px;
+}
+
+.equalizer .bar {
+  width: 6px;
+  height: 10px;
+  border-radius: 3px;
+  background: white;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+.equalizer .bar:nth-child(1) { animation-delay: 0s; }
+.equalizer .bar:nth-child(2) { animation-delay: 0.1s; }
+.equalizer .bar:nth-child(3) { animation-delay: 0.2s; }
+.equalizer .bar:nth-child(4) { animation-delay: 0.3s; }
+.equalizer .bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 100% { height: 10px; opacity: 0.4; }
+  50% { height: 35px; opacity: 1; }
+}
+
+.search-bar {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.search-bar input {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  padding: 0.6rem 1rem;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.hint {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.error {
+  color: #ffe6e6;
+  background: rgba(0, 0, 0, 0.18);
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  max-width: 360px;
+  margin: 10px auto 0;
+  display: none;
+}
+
+.meta-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: none;
+}
+
+.track-name {
+  font-weight: 700;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.meta-author {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.shape {
+  position: absolute;
+  bottom: -10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh) scale(0.5);
+    opacity: 0;
+  }
+}
